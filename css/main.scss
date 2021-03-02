@@ -48,6 +48,10 @@ li {
     }
 }
 
+.nav_name {
+  display: none;
+}
+
 .logo {
     display: inline-block;
     color: #fff;
@@ -99,15 +103,6 @@ li {
   background: var(--very-dark-gray);
   cursor: pointer;
 }
-
-.navbar ul {
-  display: none;
-}
-
-.nav-menu-btn .menu-btn {
-  display: block;
-}
-
 
 // right nav style
 .right_mobile_nav_btn {
@@ -162,11 +157,16 @@ aside h3 {
 
 .nav-menu-btn {
   position: fixed;
-  top: -25px;
-  left: 0;
+  top: 0;
+  left: -110%;
   z-index: 999;
   width: 100vw;
-  display: none;
+  transition: .5s;
+  
+}
+
+.show {
+  left: 0;
 }
 
 .nav-menu-btn ul {
@@ -214,6 +214,12 @@ aside h3 {
 
 @media only screen and (min-width: 768px) {
 
+  
+  .nav-menu-btn {
+    left: 0;
+    display: flex;
+  }
+
   .navbar {
     display: grid;
     grid-template-columns: 60% 40%;
@@ -221,6 +227,28 @@ aside h3 {
 
   .nav {
     display: flex;
+  }
+
+  .nav_name {
+    display: inline-block;
+    height: 0;
+    padding: 1em 2em;
+    font-size: 2em;
+  }
+
+  .logo 
+  {
+    display: none;
+  }
+
+  .nav-menu-btn {
+    position: relative;
+    // top: 0;
+    // left: -110%;
+    z-index: 0;
+    width: 100%;
+    transition: none;
+    
   }
 
   .nav-menu-btn {
@@ -233,6 +261,7 @@ aside h3 {
     display: flex;
     position: absolute;
     left: 2em;
+    padding-left: 20%;
     height: 5em;
     width: auto;
 
@@ -316,32 +345,4 @@ aside h3 {
     background: none;
     // background: var(--btn-previous-next);
   }
-
-  
-
-  /* 
-
-  .nav-menu-btn {
-    position: relative;
-    display: block;
-    overflow-x: hidden;
-  }
-
-  
-
-    li {
-      margin-right: 0;
-
-      a {
-        color: #fff;
-      }
-    }
-  }
-
-
-   */
-
-  /* .mobile_nav_btn {
-    bottom: 7em;
-  } */
 }
