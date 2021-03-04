@@ -41,18 +41,30 @@ const previousArrow = document.querySelector(".nav_left");
 const nextArrow = document.querySelector(".nav_right");
 
 
-const images = document.getElementsByTagName("nav");
-const asideHeaderArea = document.getElementsByClassName("aside_header");
-const asideParagraphArea = document.getElementsByClassName("aside_paragraph");
+let images = document.getElementsByTagName("nav");
+let asideHeaderArea = document.querySelector(".aside_header");
+let asideParagraphArea = document.querySelector(".aside_paragraph");
 
 /*===== SET STARTING ITEM =====*/
 let currentIndex = 0;
 
 nextArrow.addEventListener("click", () => {
-    alert("Please i want you to work thanks")
+    currentIndex += 1;
+
+    let bgImage = services[currentIndex].nav;
+    let header = services[currentIndex].asideHeader;
+    let paragraph = services[currentIndex].asideParagraph;
+    bgImage.style.backgroundImage = nav;
+    asideHeaderArea.innerHTML = header;
+    asideParagraphArea.innerHTML = paragraph;
+
 })
 
 previousArrow.addEventListener("click", () => {
-    alert("Please i want you to work thanks")
+    currentIndex -= 1;
+    let header = services[currentIndex].asideHeader;
+    let paragraph = services[currentIndex].asideParagraph;
+    asideHeaderArea.innerHTML = header;
+    asideParagraphArea.innerHTML = paragraph;
 })
 
